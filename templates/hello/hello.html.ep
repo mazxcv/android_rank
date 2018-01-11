@@ -1,42 +1,77 @@
-% layout 'default';
+% layout 'default', title => "Android Rank Search";
+
+<div class="ui segments">
+	<div class="ui segment">
 
 
-<div class="ui center category search">
-	<div class="ui icon input">
-		<input class="prompt" type="text" placeholder="Find app...">
-		<i class="search icon"></i>
+<h1 class="ui center aligned header">Androidrank</h1>
+<div class="ui text container">
+	<div class="ui segments">
+		<div class="ui segment">
+			Androidrank.org is the oldest open android market database: free data on android applications, developers, ranklists and history
+		</div>
+
+		<div class="ui segment">
+			Find Applications
+		</div>
+		<div class="ui segments">
+
+			<div class="ui segment">
+				<div class="ui category search">
+					<div class="ui icon input">
+						<input class="prompt" type="text" placeholder="Find app...">
+						<i class="search icon"></i>
+					</div>
+					<div class="results"></div>
+					<div class="ui button ui reset-search" tabindex="0" style="display: none">Reset</div>
+				</div>
+				
+			</div>
+
+		</div>
+
 	</div>
-	<div class="results"></div>
-</div>
 
-<div class="ui animated fade button reset-search" hidden>
-  <div class="visible content">reset</div>
-  <div class="hidden content">reset search</div>
-</div>
+	
+	<div class="two column row search-result" hidden>
+		<div class="column">
+			<div class="ui segment">
 
-
-
-
-<div class="ui stacked segment search-result" hidden>
-	<div class="ui items">
-		<div class="item">
-			<div class="ui small image image-search-result"></div>
-			<div class="middle aligned content">
-				<a class="header header-search-result"></a>
-				<div class="meta">
-					<span class="meta-search-result"></span>
+				<div class="ui stacked segment" >
+					<div class="ui items">
+						<div class="item">
+							<div class="ui small image image-search-result"></div>
+							<div class="middle aligned content">
+								<a class="header header-search-result"></a>
+								<div class="meta">
+									<span class="meta-search-result"></span>
+								</div>
+								<div class="description">
+									<span class="description-search-result"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content">
+						<p class="text-search-result"></p>
+					</div>
 				</div>
-				<div class="description">
-					<span class="description-search-result"></span>
-				</div>
+
 			</div>
 		</div>
+
 	</div>
-	<div class="content">
-		<p class="text-search-result"></p>
-	</div>
+
 </div>
 
+
+
+	</div>
+</duv>
+
+
+
+	
 
 
 <script>
