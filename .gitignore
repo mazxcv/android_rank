@@ -3,3 +3,5 @@
 local
 .carmel/
 cpanfile.snapshot
+node_modules/
+semantic/
