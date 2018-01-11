@@ -3,5 +3,4 @@
 local
 .carmel/
 cpanfile.snapshot
-node_modules/
-data/
+data/node_modules/
