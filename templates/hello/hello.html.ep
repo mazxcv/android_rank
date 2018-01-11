@@ -1,0 +1,84 @@
+% layout 'default';
+
+
+<div class="ui center category search">
+	<div class="ui icon input">
+		<input class="prompt" type="text" placeholder="Find app...">
+		<i class="search icon"></i>
+	</div>
+	<div class="results"></div>
+</div>
+
+<div class="ui animated fade button reset-search" hidden>
+  <div class="visible content">reset</div>
+  <div class="hidden content">reset search</div>
+</div>
+
+
+
+
+<div class="ui stacked segment search-result" hidden>
+	<div class="ui items">
+		<div class="item">
+			<div class="ui small image image-search-result"></div>
+			<div class="middle aligned content">
+				<a class="header header-search-result"></a>
+				<div class="meta">
+					<span class="meta-search-result"></span>
+				</div>
+				<div class="description">
+					<span class="description-search-result"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<p class="text-search-result"></p>
+	</div>
+</div>
+
+
+
+<script>
+$('.ui.search').search({
+	apiSettings   : {
+		url: '/suggest?q={query}',
+		onResponse: function(res) {
+			let response = { results : [] };
+
+			$.each(res, function(index, item) {
+				item.description = item.ext_id
+				response.results.push(item)
+			});
+			return response;
+		},
+	},
+	onSelect: function(res) {
+		$.ajax({
+			url: 'get_app_details',
+			type: 'GET',
+			data: {
+				ext_id: res.ext_id
+			},
+
+			success: function(data) {
+				$(".text-search-result").html(data.short_text);
+				$(".image-search-result").html("<image src=" + data.icon + "></image>")
+				$(".header-search-result").html(data.app_info[0]["Title:"])
+				$(".meta-search-result").html(data.app_info[1]["Developer:"])
+				$(".description-search-result").html(data.app_installs[0]["Installs (achieved):"] + " installs")
+				$(".search-result").show()
+				$(".reset-search").show()
+			}
+		})
+	},
+	minCharacters : 3
+});
+
+$(".reset-search").on('click', function(){
+	location.reload();
+})
+
+
+
+</script>
